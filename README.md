@@ -1,24 +1,30 @@
 # MechaCar_Statistical_Analysis
+
+## Overview
+
+For this project we were tasked with creating a data analysis to provide some insight into the production issues of the MechaCar.  We analyzed the miles per gallon or MPG of the vehicle as well as the production of the suspension coils.  We created a linear regression using R Studio as well as other types of statistical analysis to determine if the car was ready to sell.
+
 ## Linear Regression to predict MPG
 
 ![](https://github.com/WIPartain/MechaCar_Statistical_Analysis/blob/main/images/regression.png)
 
-From the above output we can see that:
 
-The vehicle length, and vehicle ground clearance are statistically likely to provide non-random amounts of variance to the model. That is to say, the vehicle length and vehicle ground clearance have a significant impact on miles per gallon on the MechaCar prototype. Conversely, the vehicle weight, spoiler angle, and All Wheel Drive (AWD) have p-Values that indicate a random amount of variance with the dataset.
+From the data we received, we can determine that the vehicle length and vehicle ground clearance have a significant impact on miles per gallon on the vehicle. The lower p-values confirm there is a non-random variance leading to lower mpg.
 
-The p-Value for this model, p-Value: 5.35e-11, is much smaller than the assumed significance level of 0.05%. This indicates there is sufficient evidence to reject our null hypothesis, which further indcates that the slope of this linear model is not zero.
+The low overall p-Value of 5.35e-11, is much smaller than the assumed significance level of 0.05%. This determines a rejection of the null hypothesis and implies a non-zero slope.
 
-This linear model has an r-squared value of 0.7149, which means that approximately 71% of all mpg predictions will be determined by this model. Relatively speaking, his multiple regression model does predict mpg of MechaCar prototypes effectively.
+The r^2 value of roughly .71 indicates that nearly 71% of the mpg predictions will be based on this model, and it proves that this regression is indeed effective.
+
+
 
 ## Create Visualizations for the Trip Analysis
 
 ![](https://github.com/WIPartain/MechaCar_Statistical_Analysis/blob/main/images/lot_summary.png)
 ![](https://github.com/WIPartain/MechaCar_Statistical_Analysis/blob/main/images/total_summary.png)
 
-When looking at the entire population of the production lot, the variance of the coils is 62.29 PSI, which is well within the 100 PSI variance requirement.
+The variance of the coils is 62.29 PSI which is much less than the 100 PSI variance requirement.
 
-Similarly, but significantly more consistent, Lot 1 and Lot 2 are well within the 100 PSI variance requirement; with variances of 0.98 and 7.47 respectively. However, it is Lot 3 that is showing much larger variance in performance and consistency, with a variance of 170.29. It is Lot 3 that is disproportionately causing the variance at the full lot level.
+Lots 1 and 2 were both well within the 100 PSI parameters at 0.98 and 7.47 variance respectively.  However, lot 3 was nearly double the varaince requirement at 170.29 which greatly skewed the variance of the overall population of the coils.
 
 ## T-Tests on Suspension Coils
 
@@ -27,28 +33,28 @@ Similarly, but significantly more consistent, Lot 1 and Lot 2 are well within th
 
 From here we can see the true mean of the sample is 1498.78, which we also saw in the summary statistics above. With a p-Value of 0.06, which is higher than the common significance level of 0.05, there is NOT enough evidence to support rejecting the null hypothesis. That is to say, the mean of all three of these manufacturing lots is statistically similar to the presumed population mean of 1500.
 
-Next looking at each individual lots:
+The mean PSI of the full sample is 1498.78 with a p-value of 0.06.  With a p-value > 0.05, we cannot reject the null hypothesis because the significance level is too high.  
 
-Lot 1 sample actually has the true sample mean of 1500, again as we saw in the summary statistics above. With a p-Value of 1, clearly we cannot reject (i.e. accept) the null hypothesis that there is no statistical difference between the observed sample mean and the presumed population mean (1500).
-Lot 2 has essentially the same outcome with a sample mean of 1500.02, a p-Value of 0.61; the null hypothesis cannot be rejected, and the sample mean and the population mean of 1500 are statistically similar.
-However, Lot 3, not surprisingly is a different scenario. Here the sample mean is 1496.14 and the p-Value is 0.04, which is lower than the common significance level of 0.05. All indicating to reject the null hypothesis that this sample mean and the presumed population mean are not statistically different.
+If we analyze each lot individually, we see that lot 1 and 2 have mean PSI's of 1500 and p-values of 1 and 0.61 respectively.  As was true with full sample, the significance level is too high and we cannot reject the null hypothesis for either of these lots.
+
+However, lot 3 has a mean PSI of 1496.14 and a p-value of 0.04 which is below the common significance level of 0.05.  This indicates that we can reject the null hypothesis of the sample mean and the lot mean are not statistically different.
+
 
  ## MechaCar Vs Competition
  
- Metrics
-Collecting data for comparable models across all major manufacturers for past 3 years for the following metrics:
+I would like to determine how effectively the MechaCar is priced by analyzing the following metrics:
 
-Safety Feature Rating: Independent Variable
-Current Price (Selling): Dependent Variable
-Drive Package : Independent Variable
-Engine (Electric, Hybrid, Gasoline / Conventional): Independent Variable
-Resale Value: Independent Variable
-Average Annual Cost of ownership (Maintenance): Independent Variable
-MPG (Gasoline Efficiency): Independent Variable
-Hypothesis: Null and Alternative
-After determining which factors are key for the MechaCar's genre:
+Current MSRP
+Safety Rating
+MPG
+Annual Maintenance Costs
+Average Duration of Ownership
 
-Null Hypothesis (Ho): MechaCar is priced correctly based on its performance of key factors for its genre.
-Alternative Hypothesis (Ha): MechaCar is NOT priced correctly based on performance of key factors for its genre.
-Statistical Tests
-A multiple linear regression would be used to determine the factors that have the highest correlation/predictability with the list selling price (dependent variable); which combination has the greatest impact on price (it may be all of them!)
+After analyzing these variables for several competitors against our own data, we will test them against our null and alternative hypotheses:
+
+Null Hypothesis: MechaCar is priced effectively against its competition.
+Alternative Hypothesis: MechaCar is not priced effectively against its competition.
+
+For the statistical tests, I would want to perform a multiple level regression in order to determine which of the aforementioned variables affects the overall value of the cars. By determining which variables are statistically significant, we can see how effectively the MechaCar ranks against its competition in these categories.  We can then assess if the car is priced accurately based on these rankings.
+
+For this test to be conducted effectively, I would need to collect the Current MSRP, Safety Rating, MPG, Annual Maintenance Costs, Average Duration of Ownership for each competitor car with same features of the MechaCar.
